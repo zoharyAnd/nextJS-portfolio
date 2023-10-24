@@ -1,11 +1,12 @@
+import Banner from './components/Banner'
 import Navbar from './components/Navbar'
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <p>hello</p>
+      <main className="min-h-screen pt-[69px]">
+        <Banner />
       </main>
     </>
   )
