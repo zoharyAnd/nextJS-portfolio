@@ -17,6 +17,7 @@ const Skills = () => {
     { name: "Vue 2 & 3", percent: 80, img: "vuejs.jpg" },
     { name: "Flutter", percent: 60, img: "flutter.jpg" },
     { name: "React Native", percent: 70, img: "reactnative.png" },
+    { name: "GraphQL", percent: 90, img: "graphql.png" },
   ];
 
   const familiarities = [

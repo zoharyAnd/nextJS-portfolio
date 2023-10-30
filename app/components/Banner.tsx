@@ -1,4 +1,6 @@
-import Image from 'next/image'
+"use client";
+
+import Image from 'next/image';
 
 const Banner = () => {
   return (
@@ -11,7 +13,7 @@ const Banner = () => {
         </div>
         <div className="relative text-center bg-[#fcf6ef] lg:bg-transparent rounded-xl mt-8 ld:mt-0 p-8 lg:py-0">
           <p className="py-4">I am a motivated web and mobile application developer, striving for a constructive journey. My objectives are to constantly nurture new skills and gather experiences, meanwhile producing meticulous and great-quality of work.</p>
-          <p>My specialties are building UI interfaces from mockups,<br /> building APIs to later use them in frontend interfaces, <br /> and implementing tests and pipelines to ensure good practices are respected. </p>
+          <p>My specialties are building UI interfaces,<br /> building APIs to later use them in frontend interfaces, <br /> and implementing tests and pipelines to ensure good practices are respected. </p>
         </div>
       </div>
     </section>
