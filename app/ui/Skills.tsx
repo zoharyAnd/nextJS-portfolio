@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LANG } from "@/app/lib/types";
 
 interface Skills {
   name: string;
@@ -6,7 +7,10 @@ interface Skills {
   img: string;
 }
 
-const Skills = () => {
+interface Props {
+  lng: LANG
+}
+const Skills = ({ lng }: Props) => {
   const skillsSet: Skills[] = [
     { name: "ReactJS", percent: 95, img: "reactjs.png" },
     { name: "NextJS incl. Next13", percent: 96, img: "nextjs.jpg" },
@@ -27,7 +31,9 @@ const Skills = () => {
 
   return (
     <section id="skills" className="relative p-20 md:px-20 md:py-24">
-      <h2 className="text-center text-xl md:text-2xl font-medium mb-20">Skills</h2>
+      <h2 className="text-center text-xl md:text-2xl font-medium mb-20">
+        {lng === 'fr' ? 'Expertise' : 'Skills'}
+      </h2>
       <div className="grid gap-8 grid-cols-2 md:grid-cols-3 max-w-2xl mx-auto">
         {skillsSet.map((skill: Skills) => (
           <div key={skill.name} className="text-center">
@@ -38,7 +44,9 @@ const Skills = () => {
           </div>
         ))}
       </div>
-      <h3 className="text-center text-lg md:text-xl font-medium my-10">Other skills set</h3>
+      <h3 className="text-center text-lg md:text-xl font-medium my-10">
+        {lng === 'fr' ? 'Autres compétences' : 'Other skills set'}
+      </h3>
       <div className="flex flex-wrap my-4">
         {familiarities.map((tag: string) => (
           <span key={tag} className="bg-gray-100 mr-3 mb-4 px-3 py-2 rounded-full text-gray-500 text-base" >{tag}</span>
