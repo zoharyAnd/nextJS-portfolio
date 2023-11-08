@@ -30,7 +30,7 @@ const Skills = ({ lng }: Props) => {
 
 
   return (
-    <section id="skills" className="relative p-20 md:px-20 md:py-24">
+    <section id="skills" className="relative py-20 px-10 md:px-20 md:py-24">
       <h2 className="text-center text-xl md:text-2xl font-medium mb-20">
         {lng === 'fr' ? 'Expertise' : 'Skills'}
       </h2>

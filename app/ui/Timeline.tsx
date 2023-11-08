@@ -161,7 +161,7 @@ const Timeline = ({ lng }: Props) => {
 
   return (
     <section id="work" className="relative py-20 px-8 md:px-20 md:py-24" style={{ backgroundColor: '#f7f7f7bf' }}>
-      <h2 className="text-center text-xl md:text-2xl font-medium mb-20">
+      <h2 className="text-center text-xl md:text-2xl font-medium mb-20 text-slate-700">
         {lng === 'fr' ? 'Parcours Professionnel' : 'Work Timeline'}
       </h2>
 

@@ -97,7 +97,14 @@ const Navbar = ({ lng, setLng }: Props) => {
             <Link
               href={menuItem.link}
               className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                const menuElement = document.getElementById(menuItem.link.replace('#', ''));
+                if (menuElement) {
+                  menuElement.scrollIntoView({ behavior: 'smooth' });
+                }
+                setOpen(false);
+              }}
             >{menuItem.text}</Link>
           </li>
         ))}
@@ -132,10 +139,17 @@ const Navbar = ({ lng, setLng }: Props) => {
   return (
     <nav className="bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200">
       <div ref={menuRef} className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center">
+        <Link
+          href="/"
+          className="flex items-center text-slate-800"
+          onClick={(e) => {
+            e.preventDefault()
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        >
           <span className="self-center text-xl font-semibold whitespace-nowrap block md:hidden">ZA</span>
           <span className="self-center text-xl font-semibold whitespace-nowrap hidden md:block">Zohary Andrianome</span>
-        </a>
+        </Link>
         <div className="flex md:hidden md:order-2">
           <div className="flex items-center md:hidden">
             {menuButtons}
