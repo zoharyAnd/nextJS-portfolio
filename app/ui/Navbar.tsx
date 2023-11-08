@@ -56,9 +56,14 @@ const Navbar = ({ lng, setLng }: Props) => {
 
   const menuButtons = (
     <>
-      <button type="button" className="text-white bg-teal-600 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2 text-center mx-3 ml-6" title="resume">
+      <a
+        className="text-white bg-teal-600 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2 text-center mx-3 ml-6"
+        title="resume"
+        target="_blank"
+        href={lng === 'fr' ? 'ZoharyAndrianome-resume-Fr.pdf' : 'ZoharyAndrianome-resume-En.pdf'}
+      >
         {lng === 'fr' ? 'CV' : 'Resume'}
-      </button>
+      </a>
       <button
         type="button"
         className="w-6 h-5 text-center mx-3 rounded-sm overflow-hidden flex items-center justify-center"
