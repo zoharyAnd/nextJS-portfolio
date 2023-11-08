@@ -29,14 +29,14 @@ const Timeline = ({ lng }: Props) => {
         return [
           {
             job: 'Développeuse Application Web',
-            date: 'Juin 2022 - Maintenant',
+            date: 'Juin 2022 - Actuellement',
             place: 'Exponent.ch - Switzerland - Freelance',
             skills: ['NextJs', 'Typescript', 'Python', 'GraphQL', 'ERPNext', 'Frappe', 'Docker', 'Playwright'],
             logo: 'exponent.svg'
           },
           {
             job: 'Consultante, Web Développeuse',
-            date: 'Décembre 2020 - Maintenant',
+            date: 'Décembre 2020 - Actuellement',
             place: 'Maasil Inc - Antananarivo, Madagascar',
             skills: ['NestJS', "ReactJS", 'NodeJS', 'Typescript'],
             logo: "maasil.jpg"

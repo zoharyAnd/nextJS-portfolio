@@ -60,7 +60,9 @@ const Navbar = ({ lng, setLng }: Props) => {
         className="text-white bg-teal-600 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2 text-center mx-3 ml-6"
         title="resume"
         target="_blank"
-        href={lng === 'fr' ? 'ZoharyAndrianome-resume-Fr.pdf' : 'ZoharyAndrianome-resume-En.pdf'}
+        href={lng === 'fr'
+          ? 'https://portfolio-zohary.s3.eu-west-3.amazonaws.com/ZoharyAndrianome-Resume-Fr.pdf'
+          : 'https://portfolio-zohary.s3.eu-west-3.amazonaws.com/ZoharyAndrianome-Resume-En.pdf'}
       >
         {lng === 'fr' ? 'CV' : 'Resume'}
       </a>
