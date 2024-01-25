@@ -1,41 +1,18 @@
 import Image from "next/image";
-import { LANG } from "@/app/lib/types";
-
-interface Skills {
-  name: string;
-  percent: number;
-  img: string;
-}
+import { LANG, Skills } from "@/app/lib/types";
+import { FAMILIARITIES, SKILLS_SET } from "../lib/constants";
 
 interface Props {
   lng: LANG
 }
 const Skills = ({ lng }: Props) => {
-  const skillsSet: Skills[] = [
-    { name: "ReactJS", percent: 95, img: "reactjs.png" },
-    { name: "NextJS incl. Next13", percent: 96, img: "nextjs.jpg" },
-    { name: "NodeJS", percent: 90, img: "nodejs.png" },
-    { name: "NestJS", percent: 85, img: "nestjs.jpg" },
-    { name: "ERPNext & Frappe", percent: 65, img: "erpnext.png" },
-    { name: "Python", percent: 55, img: "python.png" },
-    { name: "Vue 2 & 3", percent: 80, img: "vuejs.jpg" },
-    { name: "Flutter", percent: 60, img: "flutter.jpg" },
-    { name: "React Native", percent: 70, img: "reactnative.png" },
-    { name: "GraphQL", percent: 90, img: "graphql.png" },
-  ];
-
-  const familiarities = [
-    "Typescript", "Github", "GitLab", "Notion", "Figma", "JIRA", "Composing Docker containers", "Playwright tests", "Gleap integration", "Stripe integration", "Heroku", "Github Actions", "Testing Pipelines"
-  ];
-
-
   return (
     <section id="skills" className="relative py-20 px-10 md:px-20 md:py-24">
       <h2 className="text-center text-xl md:text-2xl font-medium mb-20">
         {lng === 'fr' ? 'Expertise' : 'Skills'}
       </h2>
       <div className="grid gap-8 grid-cols-2 md:grid-cols-3 max-w-2xl mx-auto">
-        {skillsSet.map((skill: Skills) => (
+        {SKILLS_SET.map((skill: Skills) => (
           <div key={skill.name} className="text-center">
             <div className="bg-white relative w-28 h-28 rounded-full overflow-hidden mx-auto mb-2 shadow-lg">
               <Image src={`/skills/${skill.img}`} alt={skill.name} fill style={{ objectFit: 'cover' }} />
@@ -47,8 +24,8 @@ const Skills = ({ lng }: Props) => {
       <h3 className="text-center text-lg md:text-xl font-medium my-10">
         {lng === 'fr' ? 'Autres compétences' : 'Other skills set'}
       </h3>
-      <div className="flex flex-wrap my-4">
-        {familiarities.map((tag: string) => (
+      <div className="flex flex-wrap my-4 max-w-4xl mx-auto">
+        {FAMILIARITIES.map((tag: string) => (
           <span key={tag} className="bg-gray-100 mr-3 mb-4 px-3 py-2 rounded-full text-gray-500 text-base" >{tag}</span>
         ))}
       </div>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { LANG } from '@/app/lib/types';
 import { useMemo } from 'react';
+import { BANNER_EN, BANNER_FR } from '../lib/constants';
 
 interface Props {
   lng: LANG;
@@ -11,24 +12,9 @@ const Banner = ({ lng }: Props) => {
   const data = useMemo(() => {
     switch (lng) {
       case 'fr':
-        return `
-          <p class="py-4">
-            Développeuse web et mobile motivée, je suis en quête d'un parcours constructif et enrichissant. Mon objectif principal est de constamment monter en compétences et accumuler le plus d'expérience tout en produisant un travail minutieux et de bonne qualité.
-          </p>
-          <p>
-            Je suis spécialisée dans le dévelopement UI,<br /> la construction d'APIs basées sur les Frameworks JS (NodeJS, NestJS), <br /> l'implémentation de tests (front et back) et la configuration de pipelines/CI pour s'assurer du bon fonctionnement des tests, build... et s'assurer que les meilleures pratiques sont respectées.
-          </p>
-        `
-
+        return BANNER_FR;
       default:
-        return `
-          <p class="py-4">
-            I am a motivated web and mobile application developer, striving for a constructive journey. My objectives are to constantly nurture new skills and gather experiences, meanwhile producing meticulous and great-quality of work.
-          </p>
-          <p>
-            My specialties are building UI interfaces,<br /> building APIs to later use them in frontend interfaces, <br /> and implementing tests and pipelines to ensure good practices are respected.
-          </p>
-        `;
+        return BANNER_EN;
     }
   }, [lng]);
 
