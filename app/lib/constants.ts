@@ -29,7 +29,7 @@ export const TIMELINE_FR: Work[]
     },
     {
       job: 'Consultante, Web Développeuse',
-      date: 'Décembre 2020 - Actuellement',
+      date: 'Décembre 2020 - Février 2024',
       place: 'Maasil Inc - Antananarivo, Madagascar',
       skills: ["NextJS", "ReactJS", 'NodeJS', 'NestJS', 'Typescript'],
       logo: "maasil.jpg"
@@ -97,7 +97,7 @@ export const TIMELINE_EN: Work[] = [
   },
   {
     job: 'Consultant, Web Developer',
-    date: 'December 2020 - Current',
+    date: 'December 2020 - February 2024',
     place: 'Maasil Inc - Antananarivo, Madagascar',
     skills: ["NextJS", "ReactJS", 'NodeJS', 'NestJS', 'Typescript'],
     logo: "maasil.jpg"
