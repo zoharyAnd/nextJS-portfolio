@@ -24,7 +24,7 @@ export const TIMELINE_FR: Work[]
       job: 'Développeuse Application Mobile et Web',
       date: 'Juin 2022 - Actuellement',
       place: 'Exponent.ch - Switzerland - Remote',
-      skills: ['NextJs', 'Typescript', 'Python', 'GraphQL', 'ERPNext', 'Frappe', 'Docker', 'Playwright'],
+      skills: ['NextJs', 'Typescript', 'Python', 'GraphQL', 'ERPNext', 'Frappe', 'Docker', 'Playwright', 'React Native'],
       logo: 'exponent.svg'
     },
     {
