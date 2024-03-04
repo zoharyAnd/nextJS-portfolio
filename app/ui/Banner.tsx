@@ -22,7 +22,7 @@ const Banner = ({ lng }: Props) => {
     <section id="about" className="relative w-screen flex items-center justify-center" style={{ height: 'calc(100vh - 69px)' }}>
       <Image src="/banner-bg.png" fill alt="banner" className="hidden lg:block" />
       <Image src="/small-banner-bg.png" fill alt="banner" className="block lg:hidden" />
-      <div className="flex flex-col items-center justify-center max-w-2xl text-gray-500 md:-mt-8">
+      <div className="flex flex-col items-center justify-center max-w-3xl text-gray-500 md:-mt-8">
         <div className="w-40 h-40 rounded-full overflow-hidden relative z-0">
           <Image src="/profile-avatar.jpeg" alt="profile" width={200} height={200} objectFit="cover" />
         </div>
