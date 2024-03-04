@@ -1,19 +1,19 @@
 import { Skills, Work } from "@/app/lib/types";
 
 export const BANNER_FR = `
+  <p class="text-xl font-semibold">Développeuse Web et Mobile</p>
+  <p class="text-zinc-400 mb-8">Full remote enthousiaste</p>
+  <p>Passionnée par la création d'UX fluides sur les plateformes web et mobiles,</p>
+  <p class="pb-4">Je suis spécialisée dans le développement d'UI, d'API backend robustes et la réalisation de tests complets.</p>
+  <p>Je suis déterminée à fournir des solutions de haute qualité tout en adoptant la flexibilité du travail à distance.</p> 
+`;
+
+export const BANNER_EN = `
   <p class="text-xl font-semibold">Web and Mobile developer</p>
   <p class="text-zinc-400 mb-8">Full remote enthousiast</p>
   <p>Passionate about crafting seamless user experiences across web and mobile platforms,</p>
   <p class="pb-4">I am proficient in building UI interfaces, developing robust backend APIs, and implementing thorough testing.</p>
   <p>I am dedicated to delivering high-quality solutions while embracing the flexibility of remote work.</p>
-`;
-
-export const BANNER_EN = `
-  <p class="text-xl font-semibold">Développeuse Web et Mobile</p>
-  <p class="text-zinc-400 mb-8">Full remote enthousiaste</p>
-  <p>Passionnée par la création d'UX fluides sur les plateformes web et mobiles,</p>
-  <p class="pb-4">Je suis spécialisée dans le développement d'UI, d'API backend robustes et la réalisation de tests complets.</p>
-  <p>Je suis déterminée à fournir des solutions de haute qualité tout en adoptant la flexibilité du travail à distance.</p>
 `;
 
 export const TIMELINE_FR: Work[]
