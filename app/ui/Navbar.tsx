@@ -52,7 +52,6 @@ const Navbar = ({ lng, setLng }: Props) => {
     switch (lng) {
       case 'fr':
         return [
-          { text: "Accueil", link: "/" },
           { text: "A propos", link: "#about" },
           { text: "Compétences", link: "#skills" },
           { text: "Chronologie", link: "#work" },
@@ -60,7 +59,6 @@ const Navbar = ({ lng, setLng }: Props) => {
 
       default:
         return [
-          { text: "Home", link: "/" },
           { text: "About", link: "#about" },
           { text: "Skills", link: "#skills" },
           { text: "Timeline", link: "#work" },
@@ -111,7 +109,6 @@ const Navbar = ({ lng, setLng }: Props) => {
             <Link
               href={menuItem.link}
               className="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
-              style={{ color: scrollY > 0 ? "black" : "white" }}
               onClick={(e) => {
                 e.preventDefault();
                 const menuElement = document.getElementById(menuItem.link.replace('#', ''));
@@ -127,21 +124,21 @@ const Navbar = ({ lng, setLng }: Props) => {
         <li>
           <Link
             href="https://www.linkedin.com/in/zohary-andrianome"
-            className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
+            className="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
             title="Linkedin"
             onClick={() => setOpen(false)}
           >
-            <FontAwesomeIcon icon={faLinkedinIn} className="text-white" />
+            <FontAwesomeIcon icon={faLinkedinIn} className="text-[inherit]" />
           </Link>
         </li>
         <li>
           <Link
             href="https://github.com/zoharyAnd"
-            className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
+            className="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
             title="Github"
             onClick={() => setOpen(false)}
           >
-            <FontAwesomeIcon icon={faGithub} className="text-white" />
+            <FontAwesomeIcon icon={faGithub} className="text-[inherit]" />
           </Link>
         </li>
       </ul>
@@ -169,12 +166,14 @@ const Navbar = ({ lng, setLng }: Props) => {
         </div>
 
         {open && (
-          <div className="flex flex-col items-center justify-center w-full md:hidden">
+          <div className="flex flex-col items-center justify-center w-full md:hidden fixed top-[75px] left-0 bg-white rounded-[30px] text-black">
             {menuList}
           </div>
         )}
 
-        <div className="hidden items-center justify-center md:flex md:order-1">
+        <div className="hidden items-center justify-center md:flex md:order-1"
+          style={{ color: scrollY > 0 ? "black" : "white" }}
+        >
           {menuList}
         </div>
 
