@@ -1,16 +1,16 @@
 import { Skills, Work } from "@/app/lib/types";
 
 export const BANNER_FR = `
-  <p class="text-xl font-semibold">Développeuse Web et Mobile</p>
-  <p class="text-zinc-400 mb-8">Full remote enthousiaste</p>
+  <p class="text-xl lg:text-3xl text-center font-semibold">Développeuse Web et Mobile</p>
+  <p class="mb-8 text-center">Full remote enthousiaste</p>
   <p>Passionnée par la création d'UX fluides sur les plateformes web et mobiles,</p>
   <p class="pb-4">Je suis spécialisée dans le développement d'UI, d'API backend robustes et la réalisation de tests complets.</p>
   <p>Je suis déterminée à fournir des solutions de haute qualité tout en adoptant la flexibilité du travail à distance.</p> 
 `;
 
 export const BANNER_EN = `
-  <p class="text-xl font-semibold">Web and Mobile developer</p>
-  <p class="text-zinc-400 mb-8">Full remote enthousiast</p>
+  <p class="text-xl lg:text-3xl text-center font-semibold">Web and Mobile developer</p>
+  <p class="mb-8 text-center">Full remote enthousiast</p>
   <p>Passionate about crafting seamless user experiences across web and mobile platforms,</p>
   <p class="pb-4">I am proficient in building UI interfaces, developing robust backend APIs, and implementing thorough testing.</p>
   <p>I am dedicated to delivering high-quality solutions while embracing the flexibility of remote work.</p>
@@ -90,7 +90,7 @@ export const TIMELINE_EN: Work[] = [
     job: 'Web and Mobile application developer',
     date: 'June 2022 - Current',
     place: 'Exponent.ch - Switzerland - Remote',
-    skills: ['NextJs', 'Typescript', 'Python', 'GraphQL', 'ERPNext', 'Frappe', 'Docker', 'Playwright', 'React Native'],
+    skills: ['NextJs', 'Typescript', 'GraphQL', "PayloadCMS", "PWA", "Push notifications", 'Docker', 'Playwright', 'React Native', 'Python'],
     logo: 'exponent.svg'
   },
   {
@@ -156,16 +156,22 @@ export const TIMELINE_EN: Work[] = [
 export const SKILLS_SET: Skills[] = [
   { name: "ReactJS", percent: 95, img: "reactjs.png" },
   { name: "NextJS incl. Next13", percent: 96, img: "nextjs.jpg" },
+  { name: "PayloadCMS", percent: 65, img: "payloadcms.png" },
   { name: "NodeJS", percent: 90, img: "nodejs.png" },
-  { name: "NestJS", percent: 85, img: "nestjs.jpg" },
-  { name: "ERPNext & Frappe", percent: 65, img: "erpnext.png" },
-  { name: "Python", percent: 55, img: "python.png" },
-  { name: "Vue 2 & 3", percent: 80, img: "vuejs.jpg" },
+  { name: "GraphQL", percent: 90, img: "graphql.png" },
+  { name: "Vue 2 & 3", percent: 70, img: "vuejs.jpg" },
+  { name: "Nuxt", percent: 75, img: "nuxt.png" },
+  { name: "Plasmic", percent: 90, img: "plasmic.png" },
+  { name: "NestJS", percent: 65, img: "nestjs.jpg" },
   { name: "Flutter", percent: 60, img: "flutter.jpg" },
   { name: "React Native", percent: 70, img: "reactnative.png" },
-  { name: "GraphQL", percent: 90, img: "graphql.png" },
+  { name: "Python", percent: 55, img: "python.png" },
 ];
 
 export const FAMILIARITIES: string[] = [
-  "Typescript", "Github", "GitLab", "Notion", "Figma", "JIRA", "Composing Docker containers", "Playwright tests", "Gleap integration", "Stripe integration", "Heroku", "Github Actions", "Testing Pipelines"
+  "Typescript", "Composing Docker containers", "Playwright tests", "Gleap integration", "Stripe integration", "Datatrans integration", "Github Actions", "Implementing CI/CD Pipelines", "Tailwind", "Storybook", "Postgres", "MongoDB", "Firebase", "Web Push notifications", "Firebase push notifications", "PWA apps"
+]
+
+export const FAMILIAR_TOOLS: string[] = [
+  "Github", "GitLab", "Notion", "Figma", "JIRA", "Linear", "Heroku", "Vercel", "Netlify", "Ngrok"
 ]

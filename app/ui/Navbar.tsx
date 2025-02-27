@@ -40,6 +40,7 @@ const Navbar = ({ lng, setLng }: Props) => {
     switch (lng) {
       case 'fr':
         return [
+          { text: "Accueil", link: "/" },
           { text: "A propos", link: "#about" },
           { text: "Compétences", link: "#skills" },
           { text: "Chronologie", link: "#work" },
@@ -47,6 +48,7 @@ const Navbar = ({ lng, setLng }: Props) => {
 
       default:
         return [
+          { text: "Home", link: "/" },
           { text: "About", link: "#about" },
           { text: "Skills", link: "#skills" },
           { text: "Timeline", link: "#work" },
@@ -91,12 +93,12 @@ const Navbar = ({ lng, setLng }: Props) => {
 
   const menuList = (
     <>
-      <ul className="w-full md:w-auto flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+      <ul className="w-full md:w-auto flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg  md:flex-row md:space-x-8 md:mt-0">
         {menuItems.map((menuItem: MenuItem) => (
           <li key={menuItem.text}>
             <Link
               href={menuItem.link}
-              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
+              className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
               onClick={(e) => {
                 e.preventDefault();
                 const menuElement = document.getElementById(menuItem.link.replace('#', ''));
@@ -116,7 +118,7 @@ const Navbar = ({ lng, setLng }: Props) => {
             title="Linkedin"
             onClick={() => setOpen(false)}
           >
-            <FontAwesomeIcon icon={faLinkedinIn} />
+            <FontAwesomeIcon icon={faLinkedinIn} className="text-white" />
           </Link>
         </li>
         <li>
@@ -126,7 +128,7 @@ const Navbar = ({ lng, setLng }: Props) => {
             title="Github"
             onClick={() => setOpen(false)}
           >
-            <FontAwesomeIcon icon={faGithub} />
+            <FontAwesomeIcon icon={faGithub} className="text-white" />
           </Link>
         </li>
       </ul>
@@ -137,19 +139,8 @@ const Navbar = ({ lng, setLng }: Props) => {
   );
 
   return (
-    <nav className="bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200">
+    <nav className="bg-transparent fixed w-[max-content] z-20 top-6 left-[50%] transform -translate-x-1/2">
       <div ref={menuRef} className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link
-          href="/"
-          className="flex items-center text-slate-800"
-          onClick={(e) => {
-            e.preventDefault()
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        >
-          <span className="self-center text-xl font-semibold whitespace-nowrap block md:hidden">ZA</span>
-          <span className="self-center text-xl font-semibold whitespace-nowrap hidden md:block">Zohary Andrianome</span>
-        </Link>
         <div className="flex md:hidden md:order-2">
           <div className="flex items-center md:hidden">
             {menuButtons}

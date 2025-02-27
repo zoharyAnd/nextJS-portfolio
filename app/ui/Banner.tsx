@@ -19,14 +19,14 @@ const Banner = ({ lng }: Props) => {
   }, [lng]);
 
   return (
-    <section id="about" className="relative w-screen flex items-center justify-center" style={{ height: 'calc(100vh - 69px)' }}>
-      <Image src="/banner-bg.png" fill alt="banner" className="hidden lg:block" />
-      <Image src="/small-banner-bg.png" fill alt="banner" className="block lg:hidden" />
-      <div className="flex flex-col items-center justify-center max-w-3xl text-gray-500 md:-mt-8">
-        <div className="w-40 h-40 rounded-full overflow-hidden relative z-0">
-          <Image src="/profile-avatar.jpeg" alt="profile" width={200} height={200} objectFit="cover" />
+    <section id="about" className="relative w-screen flex items-center justify-center h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-2 max-w-5xl">
+        <div className="relative bg-white bg-opacity-50 rounded-3xl p-8 text-stone-900" dangerouslySetInnerHTML={{ __html: data }} />
+        <div className="flex flex-col items-center justify-center w-full h-full">
+          <div className="w-52 h-52 rounded-full overflow-hidden relative z-0">
+            <Image src="/profile_late.jpeg" alt="profile" width={300} height={300} objectFit="cover" />
+          </div>
         </div>
-        <div className="relative text-center bg-[#fcf6ef] lg:bg-transparent rounded-xl mt-8 ld:mt-0 p-8 lg:py-0" dangerouslySetInnerHTML={{ __html: data }} />
       </div>
     </section>
   );

@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Navbar lng={lng} setLng={setLng} />
-      <main className="min-h-screen pt-[69px]">
+      <main className="min-h-screen">
         <Banner lng={lng} />
         <Skills lng={lng} />
         <Timeline lng={lng} />
