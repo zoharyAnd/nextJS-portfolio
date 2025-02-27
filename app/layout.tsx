@@ -24,7 +24,7 @@ export default function RootLayout({
         className={`${inter.className} w-screen h-screen overflow-x-hidden text-slate-800`
         }>
         <div className="fixed top-0 left-0 w-screen h-screen">
-          <Image src="/banner-bg.jpg" fill alt="banner" objectPosition="bottom" />
+          <Image src="/banner-bg.jpg" fill alt="banner" style={{ objectFit: "cover" }} />
         </div>
 
         {children}

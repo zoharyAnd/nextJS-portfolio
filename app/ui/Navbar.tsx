@@ -17,6 +17,8 @@ interface Props {
 
 const Navbar = ({ lng, setLng }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [scrollY, setScrollY] = useState(0);
+
   const menuRef = useRef(null);
 
   useEffect(() => {
@@ -35,6 +37,16 @@ const Navbar = ({ lng, setLng }: Props) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [menuRef]);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const menuItems: MenuItem[] = useMemo(() => {
     switch (lng) {
@@ -98,7 +110,8 @@ const Navbar = ({ lng, setLng }: Props) => {
           <li key={menuItem.text}>
             <Link
               href={menuItem.link}
-              className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
+              className="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
+              style={{ color: scrollY > 0 ? "black" : "white" }}
               onClick={(e) => {
                 e.preventDefault();
                 const menuElement = document.getElementById(menuItem.link.replace('#', ''));
@@ -139,8 +152,10 @@ const Navbar = ({ lng, setLng }: Props) => {
   );
 
   return (
-    <nav className="bg-transparent fixed w-[max-content] z-20 top-6 left-[50%] transform -translate-x-1/2">
-      <div ref={menuRef} className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="fixed w-[max-content] z-20 top-6 left-[50%] transform -translate-x-1/2 rounded-full transition-all duration-1000"
+      style={{ backgroundColor: scrollY > 0 ? "white" : "transparent" }}
+    >
+      <div ref={menuRef} className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10">
         <div className="flex md:hidden md:order-2">
           <div className="flex items-center md:hidden">
             {menuButtons}
