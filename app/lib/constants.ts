@@ -3,17 +3,15 @@ import { Skills, Work } from "@/app/lib/types";
 export const BANNER_FR = `
   <p class="text-xl lg:text-3xl text-center font-semibold">Développeuse Web et Mobile</p>
   <p class="mb-8 text-center">Full remote enthousiaste</p>
-  <p>Passionnée par la création d'UX fluides sur les plateformes web et mobiles,</p>
-  <p class="pb-4">Je suis spécialisée dans le développement d'UI, d'API backend robustes et la réalisation de tests complets.</p>
-  <p>Je suis déterminée à fournir des solutions de haute qualité tout en adoptant la flexibilité du travail à distance.</p> 
+  <p class="pb-4">Passionnée par la création d'applications robustes, évolutives et faciles à maintenir, j'accorde une attention particulière à la fluidité de l'expérience utilisateur sur les plateformes web et mobiles</p>
+  <p>Spécialisée dans le développement d'interfaces (UI), d'API backend et la mise en place de tests complets, je m'engage à livrer des solutions de haute qualité, avec rigueur et efficacité, tout en tirant parti de la flexibilité du travail à distance.</p>
 `;
 
 export const BANNER_EN = `
   <p class="text-xl lg:text-3xl text-center font-semibold">Web and Mobile developer</p>
   <p class="mb-8 text-center">Full remote enthousiast</p>
-  <p>Passionate about crafting seamless user experiences across web and mobile platforms,</p>
-  <p class="pb-4">I am proficient in building UI interfaces, developing robust backend APIs, and implementing thorough testing.</p>
-  <p>I am dedicated to delivering high-quality solutions while embracing the flexibility of remote work.</p>
+  <p class="pb-4">Passionate about crafting robust, scalable, and maintainable applications, I pay close attention to delivering seamless user experience acrossweb and mobile platforms.</p>
+  <p>Specialized in UI development, backend APIs, and comprehensive testing, I am committed to delivering high-quality solutions with rigor and efficiency, while embracing the flexibility of remote work.</p>
 `;
 
 export const TIMELINE_FR: Work[]
