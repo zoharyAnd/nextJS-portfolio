@@ -153,7 +153,7 @@ export const TIMELINE_EN: Work[] = [
 
 export const SKILLS_SET: Skills[] = [
   { name: "ReactJS", percent: 95, img: "reactjs.png" },
-  { name: "NextJS incl. Next13", percent: 96, img: "nextjs.jpg" },
+  { name: "NextJS", percent: 96, img: "nextjs.jpg" },
   { name: "PayloadCMS", percent: 65, img: "payloadcms.png" },
   { name: "NodeJS", percent: 90, img: "nodejs.png" },
   { name: "GraphQL", percent: 90, img: "graphql.png" },

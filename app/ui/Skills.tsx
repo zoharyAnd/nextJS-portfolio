@@ -7,44 +7,52 @@ interface Props {
 }
 const Skills = ({ lng }: Props) => {
   return (
-    <section id="skills" className="gap-y-10 flex flex-col max-w-5xl mx-auto">
-      <div className="bg-white bg-opacity-50 relative py-10 px-10  rounded-3xl">
-        <h2 className="text-center text-xl md:text-3xl font-medium mb-12">
-          {lng === 'fr' ? 'Expertise' : 'Skills'}
+    <section id="skills" className="flex flex-col gap-10 max-w-6xl mx-auto px-6">
+      <div className="glass relative py-10 px-6 md:px-10">
+        <h2 className="text-center text-2xl md:text-3xl font-semibold mb-10">
+          {lng === 'fr' ? 'Compétences' : 'Skills'}
         </h2>
-        <div className="grid gap-8 grid-cols-2 md:grid-cols-4 mx-auto">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {SKILLS_SET.map((skill: TSkills) => (
-            <div key={skill.name} className="text-center">
-              <div className="bg-white relative w-28 h-28 rounded-full overflow-hidden mx-auto mb-2 shadow-lg">
+            <div key={skill.name} className="flex items-center gap-4 p-3 rounded-2xl bg-white/70 border border-white/60 backdrop-blur">
+              <div className="relative w-14 h-14 rounded-xl overflow-hidden ring-1 ring-white/70 shadow-sm flex-shrink-0">
                 <Image
                   src={`/skills/${skill.img}`}
                   alt={skill.name}
                   fill
                   style={{ objectFit: 'cover' }} />
               </div>
-              <p className="text-base">{skill.percent} %</p>
+              <div className="flex-1">
+                <div className="flex items-center justify-between mb-1">
+                  <p className="text-sm font-medium text-slate-700">{skill.name}</p>
+                  <span className="text-xs text-slate-500">{skill.percent}%</span>
+                </div>
+                <div className="h-2 w-full rounded-full bg-slate-200 overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-teal-400 to-indigo-500" style={{ width: `${skill.percent}%` }} />
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="bg-white bg-opacity-50 relative py-10 px-10 w-full mx-auto rounded-3xl">
+      <div className="glass relative py-10 px-6 md:px-10">
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-center text-xl md:text-3xl font-medium mb-12">
-            {lng === 'fr' ? 'Autres compétences' : 'Other skills set'}
+          <h3 className="text-center text-xl md:text-2xl font-semibold mb-8">
+            {lng === 'fr' ? 'Autres compétences' : 'Other Skills'}
           </h3>
-          <div className="flex flex-wrap my-4">
+          <div className="flex flex-wrap gap-3 mb-8 justify-start">
             {FAMILIARITIES.map((tag: string) => (
-              <span key={tag} className="bg-gray-100 mr-3 mb-4 px-3 py-2 rounded-full text-gray-500 text-base" >{tag}</span>
+              <span key={tag} className="inline-flex items-center bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full text-sm border border-slate-200" >{tag}</span>
             ))}
           </div>
 
-          <h3 className="text-left text-xl font-medium mb-6">
+          <h3 className="text-left text-lg font-semibold mb-4">
             {lng === 'fr' ? 'Outils' : 'Tools'}
           </h3>
-          <div className="flex flex-wrap my-4">
+          <div className="flex flex-wrap gap-3">
             {FAMILIAR_TOOLS.map((tag: string) => (
-              <span key={tag} className="bg-gray-100 mr-3 mb-4 px-3 py-2 rounded-full text-gray-500 text-base" >{tag}</span>
+              <span key={tag} className="inline-flex items-center bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full text-sm border border-slate-200" >{tag}</span>
             ))}
           </div>
         </div>

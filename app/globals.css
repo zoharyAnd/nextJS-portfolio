@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --glass-bg: 255, 255, 255;
+  --glass-alpha: 0.6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,12 +20,35 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  /* background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
+}
+
+/* App background: soft gradient mesh with subtle noise */
+.bg-app {
+  position: relative;
+  background: radial-gradient(1200px 800px at 10% 10%, #e8f4ff 0%, transparent 60%),
+              radial-gradient(1000px 700px at 90% 0%, #ffe7f2 0%, transparent 60%),
+              radial-gradient(900px 700px at 0% 90%, #e9ffe8 0%, transparent 60%),
+              linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  isolation: isolate;
+}
+.bg-app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0.02'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .35;
+  z-index: -1;
+}
+
+/* Glass utilities */
+@layer components {
+  .glass {
+    @apply rounded-3xl shadow-xl border border-white/40 backdrop-blur-md bg-white/60;
+  }
+  .glass-dark {
+    @apply rounded-3xl shadow-xl border border-white/10 backdrop-blur-md bg-slate-900/40 text-slate-100;
+  }
 }
 
 
@@ -52,15 +77,20 @@ body {
 }
 
 .timeline-content {
-  padding: 20px;
-  background: white;
-  border-radius: 20px;
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.45);
+  border-radius: 18px;
   color: rgb(35, 35, 35);
-  padding: 1.75rem;
-  transition: 0.4s ease;
+  padding: 1.25rem 1.25rem 1rem 1.25rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   overflow-wrap: break-word !important;
-  /* margin: 1rem; */
   margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+}
+.timeline-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(2, 6, 23, 0.08);
+  background: rgba(255,255,255,0.75);
 }
 
 @media screen and (min-width: 768px) {
@@ -70,7 +100,7 @@ body {
   }
   .timeline-middle {
     position: relative;
-    background-image: linear-gradient(45deg, #f221be, #E94057, #8A2387);
+    background-image: linear-gradient(45deg, #22d3ee, #6366f1, #a855f7);
     width: 3px;
     height: 100%;
   }
@@ -84,7 +114,7 @@ body {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-image: linear-gradient(45deg, #f221be, #E94057, #8A2387);
+    background-image: linear-gradient(45deg, #22d3ee, #6366f1, #a855f7);
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }
@@ -92,3 +122,12 @@ body {
     margin: 1rem;
   }
 }
+
+/* Simple scrollbar theming */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 transparent;
+}
+*::-webkit-scrollbar { height: 8px; width: 8px; }
+*::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }

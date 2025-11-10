@@ -27,9 +27,11 @@ const Timeline = ({ lng }: Props) => {
   }, [timelineData]);
 
   return (
-    <section id="work" className="relative py-10 px-8 md:px-20 md:py-24">
-      <h2 className="text-center text-3xl md:text-5xl font-bold text-white">
-        {lng === 'fr' ? 'Parcours Professionnel' : 'Work Timeline'}
+    <section id="work" className="relative py-14 px-6 md:px-10">
+      <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-8">
+        <span className="bg-gradient-to-r from-teal-500 via-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">
+          {lng === 'fr' ? 'Parcours Professionnel' : 'Experience'}
+        </span>
       </h2>
 
       <div className="design-section">
@@ -42,19 +44,23 @@ const Timeline = ({ lng }: Props) => {
               </div>
               {chunk.map((timelineElement: Work) => (
                 <div key={timelineElement.date} className="timeline-component timeline-content">
-                  <p className="vertical-timeline-element-title !font-bold !m-0">
-                    {timelineElement.job}
-                  </p>
-                  <p className="vertical-timeline-element-subtitle !m-0 !font-normal">{timelineElement.place}</p>
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="!font-semibold !m-0 text-slate-800">
+                        {timelineElement.job}
+                      </p>
+                      <p className="!m-0 !font-normal text-slate-600">{timelineElement.place}</p>
+                    </div>
+                    <span className="inline-flex items-center text-xs rounded-full bg-slate-900/80 text-white px-2 py-1 shadow-sm whitespace-nowrap">{timelineElement.date}</span>
+                  </div>
                   <div className="w-full flex flex-wrap mt-4">
-                    {timelineElement.skills?.map((skill: string, iSkill: number) =>
+                    {timelineElement.skills?.map((skill: string, iSkill: number) => (
                       <span
                         key={`skill${iSkill}`}
-                        className="bg-gray-100 py-2 px-3 rounded-xl mr-2 mb-2 text-sm"
-                      >{skill}</span>)
-                    }
+                        className="bg-slate-100 border border-slate-200 py-1.5 px-2.5 rounded-xl mr-2 mb-2 text-xs text-slate-600"
+                      >{skill}</span>
+                    ))}
                   </div>
-                  <p className="!font-normal text-sm text-slate-400">{timelineElement.date}</p>
                 </div>
               ))}
               <div className="timeline-middle">

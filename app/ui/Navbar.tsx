@@ -149,10 +149,13 @@ const Navbar = ({ lng, setLng }: Props) => {
   );
 
   return (
-    <nav className="fixed w-[max-content] z-20 top-6 left-[50%] transform -translate-x-1/2 rounded-full transition-all duration-1000"
-      style={{ backgroundColor: scrollY > 0 ? "white" : "transparent" }}
+    <nav
+      className="fixed z-20 top-4 left-1/2 -translate-x-1/2 transition-all duration-500"
     >
-      <div ref={menuRef} className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10">
+      <div
+        ref={menuRef}
+        className={`flex flex-wrap items-center justify-between mx-auto py-2 px-4 md:py-3 md:px-6 rounded-full border backdrop-blur-md shadow-lg ${scrollY > 0 ? 'bg-white/70 border-white/40' : 'bg-white/30 border-white/30'} `}
+      >
         <div className="flex md:hidden md:order-2">
           <div className="flex items-center md:hidden">
             {menuButtons}
@@ -166,14 +169,12 @@ const Navbar = ({ lng, setLng }: Props) => {
         </div>
 
         {open && (
-          <div className="flex flex-col items-center justify-center w-full md:hidden fixed top-[75px] left-0 bg-white rounded-[30px] text-black">
+          <div className="flex flex-col items-center justify-center w-[calc(100vw-2rem)] mx-auto md:hidden fixed top-20 left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-md rounded-3xl text-black p-4 border border-white/50 shadow-xl">
             {menuList}
           </div>
         )}
 
-        <div className="hidden items-center justify-center md:flex md:order-1"
-          style={{ color: scrollY > 0 ? "black" : "white" }}
-        >
+        <div className="hidden items-center justify-center md:flex md:order-1 text-slate-700">
           {menuList}
         </div>
 
