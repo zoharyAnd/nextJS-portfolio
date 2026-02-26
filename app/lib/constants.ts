@@ -18,7 +18,14 @@ export const TIMELINE_FR: Work[]
   = [
     {
       job: 'Développeuse Application Mobile et Web',
-      date: 'Juin 2022 - Actuellement',
+      date: 'Janvier 2025 - Actuellement',
+      place: 'Vohitra MG SA - Madagascar - Remote',
+      skills: ['NextJs', 'Typescript', 'Python', 'GraphQL', 'ERPNext', 'Frappe', 'Docker', 'Playwright', 'React Native'],
+      logo: 'exponent.svg'
+    },
+    {
+      job: 'Développeuse Application Mobile et Web',
+      date: 'Juin 2022 - Décembre 2024',
       place: 'Exponent.ch - Switzerland - Remote',
       skills: ['NextJs', 'Typescript', 'Python', 'GraphQL', 'ERPNext', 'Frappe', 'Docker', 'Playwright', 'React Native'],
       logo: 'exponent.svg'
@@ -86,7 +93,14 @@ export const TIMELINE_FR: Work[]
 export const TIMELINE_EN: Work[] = [
   {
     job: 'Web and Mobile application developer',
-    date: 'June 2022 - Current',
+    date: 'January 2025 - Current',
+    place: 'Vohitra MG SA - Madagascar - Remote',
+    skills: ['NextJs', 'Typescript', 'GraphQL', "PayloadCMS", "PWA", "Push notifications", 'Docker', 'Playwright', 'React Native', 'Python'],
+    logo: 'exponent.svg'
+  },
+  {
+    job: 'Web and Mobile application developer',
+    date: 'June 2022 - December 2024',
     place: 'Exponent.ch - Switzerland - Remote',
     skills: ['NextJs', 'Typescript', 'GraphQL', "PayloadCMS", "PWA", "Push notifications", 'Docker', 'Playwright', 'React Native', 'Python'],
     logo: 'exponent.svg'
@@ -154,16 +168,16 @@ export const TIMELINE_EN: Work[] = [
 export const SKILLS_SET: Skills[] = [
   { name: "ReactJS", percent: 95, img: "reactjs.png" },
   { name: "NextJS", percent: 96, img: "nextjs.jpg" },
-  { name: "PayloadCMS", percent: 65, img: "payloadcms.png" },
+  { name: "PayloadCMS", percent: 95, img: "payloadcms.png" },
   { name: "NodeJS", percent: 90, img: "nodejs.png" },
   { name: "GraphQL", percent: 90, img: "graphql.png" },
   { name: "Vue 2 & 3", percent: 70, img: "vuejs.jpg" },
   { name: "Nuxt", percent: 75, img: "nuxt.png" },
-  { name: "Plasmic", percent: 90, img: "plasmic.png" },
+  { name: "Plasmic", percent: 80, img: "plasmic.png" },
   { name: "NestJS", percent: 65, img: "nestjs.jpg" },
   { name: "Flutter", percent: 60, img: "flutter.jpg" },
-  { name: "React Native", percent: 70, img: "reactnative.png" },
-  { name: "Python", percent: 55, img: "python.png" },
+  { name: "React Native", percent: 80, img: "reactnative.png" },
+  { name: "Python", percent: 50, img: "python.png" },
 ];
 
 export const FAMILIARITIES: string[] = [
