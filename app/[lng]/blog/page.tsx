@@ -23,17 +23,17 @@ export default function BlogPage({ params }: PageProps) {
         href={`/${lng}`}
         className="inline-flex items-center text-sm font-medium text-slate-600 hover:text-slate-900 mb-4"
       >
-        {isFrench ? "← Retour a l'accueil" : "← Back to home"}
+        {isFrench ? "← Retour à l'accueil" : "← Back to home"}
       </Link>
 
       <div className="glass p-8 md:p-10 mb-8">
         <p className="text-sm uppercase tracking-[0.2em] text-slate-500 mb-3">Blog</p>
         <h1 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900">
-          {isFrench ? "Articles interessants" : "Interesting articles"}
+          {isFrench ? "Articles intéressants" : "Interesting articles"}
         </h1>
         <p className="text-slate-600 max-w-3xl">
           {isFrench
-            ? "Notes sur le developpement web et mobile, la livraison produit et les pratiques d'ingenierie que j'applique sur des projets reels."
+            ? "Notes sur le développement web et mobile, la livraison produit et les pratiques que j'applique sur des projets réels."
             : "Notes about web and mobile development, product delivery, and engineering practices I use in real projects."}
         </p>
       </div>
