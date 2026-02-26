@@ -1,23 +1,6 @@
-"use client";
-
-import { useState } from 'react';
-import Banner from '@/app/ui/Banner'
-import Navbar from '@/app/ui/Navbar'
-import Skills from '@/app/ui/Skills'
-import Timeline from '@/app/ui/Timeline'
-import { LANG } from '@/app/lib/types';
+import { redirect } from "next/navigation";
+import { DEFAULT_LANGUAGE } from "@/app/lib/i18n";
 
 export default function Home() {
-  const [lng, setLng] = useState<LANG>('en');
-
-  return (
-    <>
-      <Navbar lng={lng} setLng={setLng} />
-      <main className="min-h-screen">
-        <Banner lng={lng} />
-        <Skills lng={lng} />
-        <Timeline lng={lng} />
-      </main>
-    </>
-  )
+  redirect(`/${DEFAULT_LANGUAGE}`);
 }

@@ -18,3 +18,26 @@ export interface Skills {
   percent: number;
   img: string;
 }
+
+export interface BlogArticleSection {
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+}
+
+export interface BlogArticleContent {
+  title: string;
+  summary: string;
+  date: string;
+  readTime: string;
+  tags: string[];
+  intro: string;
+  sections: BlogArticleSection[];
+  conclusion: string;
+}
+
+export interface BlogArticle {
+  slug: string;
+  en: BlogArticleContent;
+  fr: BlogArticleContent;
+}

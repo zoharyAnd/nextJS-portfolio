@@ -1,23 +1,25 @@
 "use client";
 
-import { Dispatch, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedinIn,
   faGithub
 } from "@fortawesome/free-brands-svg-icons";
+import { usePathname } from "next/navigation";
 
 import { LANG, MenuItem } from "@/app/lib/types";
+import { SUPPORTED_LANGUAGES } from "@/app/lib/i18n";
 
 interface Props {
   lng: LANG;
-  setLng: Dispatch<SetStateAction<LANG>>
 }
 
-const Navbar = ({ lng, setLng }: Props) => {
+const Navbar = ({ lng }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
   const [scrollY, setScrollY] = useState(0);
+  const pathname = usePathname();
 
   const menuRef = useRef(null);
 
@@ -52,19 +54,34 @@ const Navbar = ({ lng, setLng }: Props) => {
     switch (lng) {
       case 'fr':
         return [
-          { text: "A propos", link: "#about" },
-          { text: "Compétences", link: "#skills" },
-          { text: "Chronologie", link: "#work" },
+          { text: "A propos", link: `/${lng}#about` },
+          { text: "Compétences", link: `/${lng}#skills` },
+          { text: "Chronologie", link: `/${lng}#work` },
+          { text: "Blog", link: `/${lng}/blog` },
         ];
 
       default:
         return [
-          { text: "About", link: "#about" },
-          { text: "Skills", link: "#skills" },
-          { text: "Timeline", link: "#work" },
+          { text: "About", link: `/${lng}#about` },
+          { text: "Skills", link: `/${lng}#skills` },
+          { text: "Timeline", link: `/${lng}#work` },
+          { text: "Blog", link: `/${lng}/blog` },
         ];
     }
   }, [lng]);
+
+  const getLanguagePath = (nextLanguage: LANG) => {
+    const segments = pathname.split("/").filter(Boolean);
+    const currentLanguage = segments[0];
+
+    if (SUPPORTED_LANGUAGES.includes(currentLanguage as LANG)) {
+      segments[0] = nextLanguage;
+    } else {
+      segments.unshift(nextLanguage);
+    }
+
+    return `/${segments.join("/")}`;
+  };
 
   const menuButtons = (
     <>
@@ -78,26 +95,26 @@ const Navbar = ({ lng, setLng }: Props) => {
       >
         {lng === 'fr' ? 'CV' : 'Resume'}
       </a>
-      <button
-        type="button"
+      <Link
+        href={getLanguagePath("en")}
         className="w-6 h-5 text-center mx-3 rounded-sm overflow-hidden flex items-center justify-center"
         title="en"
-        onClick={() => setLng('en')}
+        onClick={() => setOpen(false)}
       >
         <svg className="w-6 h-6 rounded-md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900"><path fill="#b22234" d="M0 0h7410v3900H0z" /><path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff" strokeWidth="300" /><path fill="#3c3b6e" d="M0 0h2964v2100H0z" /><g fill="#fff"><g id="d"><g id="c"><g id="e"><g id="b"><path id="a" d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z" /><use xlinkHref="#a" y="420" /><use xlinkHref="#a" y="840" /><use xlinkHref="#a" y="1260" /></g><use xlinkHref="#a" y="1680" /></g><use xlinkHref="#b" x="247" y="210" /></g><use xlinkHref="#c" x="494" /></g><use xlinkHref="#d" x="988" /><use xlinkHref="#c" x="1976" /><use xlinkHref="#e" x="2470" /></g></svg>
-      </button>
-      <button
-        type="button"
+      </Link>
+      <Link
+        href={getLanguagePath("fr")}
         className="w-6 h-5 text-center mx-3 rounded-lg overflow-hidden flex items-center justify-center md:mr-0"
         title="fr"
-        onClick={() => setLng('fr')}
+        onClick={() => setOpen(false)}
       >
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" id="flag-icons-fr" viewBox="0 0 640 480">
           <path fill="#fff" d="M0 0h640v480H0z" />
           <path fill="#002654" d="M0 0h213.3v480H0z" />
           <path fill="#ce1126" d="M426.7 0H640v480H426.7z" />
         </svg>
-      </button>
+      </Link>
     </>
   );
 
@@ -109,12 +126,7 @@ const Navbar = ({ lng, setLng }: Props) => {
             <Link
               href={menuItem.link}
               className="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-700 md:p-0"
-              onClick={(e) => {
-                e.preventDefault();
-                const menuElement = document.getElementById(menuItem.link.replace('#', ''));
-                if (menuElement) {
-                  menuElement.scrollIntoView({ behavior: 'smooth' });
-                }
+              onClick={() => {
                 setOpen(false);
               }}
             >{menuItem.text}</Link>
